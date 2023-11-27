@@ -1,0 +1,152 @@
+/* projects.css */
+@import url(vars.css);
+
+* {
+  font-family:'playpen_sansregular', Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--background-color, darkgray);
+  color: var(--text-color, black);
+}
+
+header {
+  background-color: var(--darkgreen-color, darkgreen);
+}
+
+header {
+  margin: 2rem;
+  border-radius: .5rem;
+}
+
+.main_menu {
+  display: flex;
+  list-style-type: none;
+  margin: 20px;
+  width: 900px;
+}
+
+.main_menu li {
+  display: block;
+  width: 100px;
+  float: left;
+  margin-left: .5rem;
+  border: 1px solid #000;
+}
+
+.main_menu a {
+  display: block;
+  padding: 3px;
+  text-decoration: none;
+  background-color: white;
+  color: #009;
+}
+
+.main_menu a:hover {
+  background-color: var(--lightgreen-color, lightgreen);
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+
+.code_path {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-template-rows: auto;
+ place-items: center;
+}
+
+#simpletweet {
+  background-color: var(--lightgray-color, lightgray);
+ }
+
+#parstagram {
+  background-color: var(--darkgray-color, darkgray);
+ }
+
+section {
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
+.border_gif {
+  border-radius: 1rem;
+  margin-left: 2.5rem;
+  height: 75%;
+}
+
+.android_desc {
+  margin: 5rem;
+}
+
+.android_title {
+  margin-left: 5rem;
+}
+
+#viruses {
+  background-color: var(--lightgray-color, lightgray);
+}
+#viruses details {
+  margin-left: 2rem;
+}
+
+details {
+  background-color: color-mix(in srgb, red 50%, white 70%);
+  color: color(srgb 0.8 0 0.85);
+}
+
+article:has(p){
+  color: lightblue;
+}
+
+details > img {
+  margin: 1rem;
+}
+
+@media (max-width: 1200px) {
+  details pre {
+    visibility: hidden;
+  } 
+}
+
+@media (max-width: 700px) {
+  nav {
+    margin: 0;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+  .code_path {
+    display: block;
+  }
+  ul.main_menu {
+    margin: 0;
+    display:block;
+  }
+  ul.main_menu li {
+    width: 9.5%;
+  }
+  .border_gif {
+    width: 75%;
+  }
+
+  .android_title {
+    margin: auto;
+  }
+
+  .android_desc {
+    margin: 1rem;
+  }
+  details > img {
+    width: 75%;
+    margin: 1rem;
+  }
+
+
+}

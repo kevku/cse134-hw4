@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Personal Portfolio"/>
+    <meta name="keywords" content="HTML, CSS, JavaSctipt, Bryson Collins"/>
+    <meta name="author" content="Kevin Kuang"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <link rel="stylesheet" href="style/projects.css">
+    <title>Kevin's Portfolio</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Projects</h1>
+      <nav>
+        <ul class="main_menu">
+          <li><a href="index.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
+      <br>
+    </header>
+
+    <main>
+      <section class="code_path" id="simpletweet">
+        <br>
+        <h2 class="android_title" style="text-align: center;">Custom Twitter App</h2>
+        <br>
+        <img src="media/Projects/SimpleTweet_Scroll.gif" alt="Scrolling Through SimpleTweet" class="border_gif">
+        <img src="media/Projects/SimpleTweet_Post.gif" alt="Posting on SimpleTweet" class="border_gif">
+        <article class="android_desc">
+          <h3>SimpleTweet</h3>
+          <p>Developing <b>SimpleTweet</b> has been an exciting and educational experience. The project lead by CodePath taught us the application of the Recycler View and how to integrate API's within our applications.</p>
+        </article>
+      </section>
+      <section class="code_path" id="parstagram">
+        <br>
+        <h2 class="android_title">Personal Instagram App</h2>
+        <br>
+        <img src="media/Projects/Parstagram_Account.gif" alt="Making an Account on Parstagram" class="border_gif">
+        <img src="media/Projects/Parstagram_Feed.gif" alt="Scrolling Through Parstagram Feed" class="border_gif">
+        <article class="android_desc">
+          <h3>Parstagram</h3>
+          <p>Creating Parstagram was a fun and difficult project to execute. <b>Pastagram</b> was a project lead by CodePath to teach how the backend of a software app worked. We used the Parse platform as a small server and placed example data of a user, their message, and photo post.</p>
+        </article>
+      </section>
+      <section id="viruses">
+        <h2>Cybersecurity Viruses</h2>
+        <canvas width="120" height="120">
+          <script>
+            const canvas = document.querySelector("canvas");
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "purple";
+            ctx.fillRect(10, 20, 20, 100);
+            ctx.fillRect(100, 10, 20, 100);
+            ctx.fillRect(10, 100, 100, 20);
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(20, 30, 5, 5);
+          </script>
+        </canvas>
+        <details>
+          <summary>Understanding Vulnerabilities (CODE PROVIDED ONLY FOR TESTING ON YOUR OWN COMPUTER)</summary>
+          <picture>
+            <source type="image/webp" srcset="media/Projects/Multi-payload-virus.webp">
+            <img src="media/Projects/Multi-payload-virus.png" alt="Code for a Multi-payload Virus">
+          </picture>
+          <br>
+          <picture>
+            <source type="image/webp" srcset="media/Projects/Encrypted-Virus.webp">
+            <img src="media/Projects/Encrypted-Virus.png" alt = "Code for Encrypted Virus">
+          </picture>
+          <p>This project was learning about computer vulnerabilities and demonstrating how easy it can be for someone to create malware. The virus project was lead by CodePath to teach how malware is created and how to prevent ourselves from being exposed to malicious hackers. We used an operating system called Kali to learn how to protect ourselves. The viruses were created by a software called <strong>msfvenom</strong>.
+          <pre>
+            # Commands used for a Multi-payload Virus
+            msfvenom -a x86 --platform windows -p windows/messagebox TEXT="Your computer is in Danger" -f  raw > messageBox
+            msfvenom -c messageBox -a x86 --platform windows -p windows/speak_pwned -f exe -o pwnedVirus.exe 
+
+            # Commands used for an encrypted virus file 
+            msfvenom -a x86 --platform windows -p windows/messagebox TEXT="Encrypted Virus Testing" -e x86/shikata_ga_nai -i 3 -f python -o messageEncrypted
+            msfvenom -c messageEncrypted -a x86 --platform windows -p windows/speak_pwned -f exe -0 pyVirus.exe 
+          </pre>
+          <p>Distributing malware is <strong>illegal</strong> and the use of <code>msfvenom</code> is purely for educational and research purposes.</p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p>&copy; Designed by Kevin Kuang</p>
+    </footer>
+  </body>
+
+</html>
