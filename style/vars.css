@@ -17,7 +17,10 @@
   --lightgreen-color : #86c232;
   --darkgray-color : #474b4f;
   --lightgray-color : #6b6e70;
+  --light-blue-color : #ADD8E6;
+  --yellow-color : #FFD700;
   --text-color : white;
+  --text-color-light : #000000;
 }
 
 /* Modern Reset by Andy Bell */
