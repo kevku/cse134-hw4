@@ -13,6 +13,8 @@ const nameError = givenName.nextElementSibling.nextElementSibling;
 const message = document.getElementById("message-area");
 const messageError = message.nextSibling;
 
+var formErrors = [];
+
 const emailRegExp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -98,6 +100,22 @@ form.addEventListener("submit", (event) => {
     message.className = "invalid";
     messageError.textContent = "Too Many Letters!";
     messageError.className = "error active";
+    formErrors.push({
+      field: 'comment',
+      message: 'Comment exceeds maximum length'
+    });
+    var formErrorsJSON = JSON.stringify(formErrors);
+
+    var formErrorsInput = document.createElement('input');
+    formErrorsInput.type = 'hidden';
+    formErrorsInput.name = 'form-errors';
+    formErrorsInput.value = formErrorsJSON;
+    form.appendChild(formErrorsInput);
+
+    if (formErrors.length > 0) {
+      event.preventDefault();
+    }
+
   } else {
     message.className = "valid";
     messageError.textContent = "";
