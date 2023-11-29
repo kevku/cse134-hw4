@@ -24,6 +24,11 @@
           <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
           <span class="slider"></span>
         </label>
+        <noscript>
+          <style>
+              .switch {display: none;}
+          </style>
+      </noscript>
       </nav>
       <br>
     </header>
@@ -111,13 +116,22 @@
               <input type="email" placeholder="Email" id="mail" minlength="3" name="mail" maxlength="254" required>
               <br>
               <span class="error" aria-live="polite"></span>
+              <noscript>
+                <style>
+                    .error {display: none;}
+                </style>
+              </noscript>
               <br>
               <br>
               <label for="message-area">Message:</label>
               <textarea id="message-area" placeholder="Your Message..." required></textarea>
-              <br>
-              <span></span>
-              <br>
+              <span class="error" aria-live="polite"></span>
+              <div id="remainingChars">250 Characters Remaining</div>
+              <noscript>
+                <style>
+                    #remainingChars {display: none;}
+                </style>
+              </noscript>
               <label for="feelings">How do you feel?:</label>
               <select id="feelings">
                 <option value="happy">&#128515;</option>

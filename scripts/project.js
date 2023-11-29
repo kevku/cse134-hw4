@@ -1,3 +1,10 @@
+/* project.js */
+
+
+document.addEventListener
+
+document.addEventListener('DOMContentLoaded', setSavedTheme);
+
 function setTheme(theme) {
   const root = document.documentElement;
   const simpleSection = document.getElementById("simpletweet");
@@ -46,7 +53,3 @@ function setSavedTheme() {
     document.getElementById('themeToggle').checked = savedTheme === 'light';
   }
 }
-
-document.addEventListener
-
-document.addEventListener('DOMContentLoaded', setSavedTheme);

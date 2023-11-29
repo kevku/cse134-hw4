@@ -1,22 +1,32 @@
 /* main.js */
 
 
+document.addEventListener
+
+document.addEventListener('DOMContentLoaded', setSavedTheme);
+
 const form = document.querySelector("form");
 const email = document.getElementById("mail");
 const emailError = email.nextElementSibling.nextElementSibling;
 const givenName = document.getElementById("name-area");
 const nameError = givenName.nextElementSibling.nextElementSibling;
 const message = document.getElementById("message-area");
-const messageError = message.nextSibling.nextSibling;
+const messageError = message.nextSibling;
 
 const emailRegExp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const nameRegEXP =
   /^[a-z ,.'-]+$/i;
+
 window.addEventListener("load", () => {
   const isValid = email.value.length === 0 || emailRegExp.test(email.value);
   email.className = isValid ? "valid" : "invalid";
+});
+
+window.addEventListener("load", () => {
+  const isValid = nameRegEXP.test(givenName.value);
+  givenName.className = isValid ? "valid" : "invalid";
 });
 
 email.addEventListener("input", () => {
@@ -30,9 +40,19 @@ email.addEventListener("input", () => {
   }
 });
 
+givenName.addEventListener("input", () => {
+  const isValid = nameRegEXP.test(givenName.value);
+  if (isValid) {
+    givenName.className = "valid";
+    nameError.textContent = "";
+    nameError.className = "error";
+  } else {
+    givenName.className = "invalid";
+  }
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
   const isValid = email.value.length === 0 || emailRegExp.test(email.value);
   if (!isValid) {
     email.className = "invalid";
@@ -45,6 +65,48 @@ form.addEventListener("submit", (event) => {
   }
 });
 
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const isValid = nameRegEXP.test(givenName.value);
+  if (!isValid) {
+    givenName.className = "invalid";
+    nameError.textContent = "This is not a name!";
+    nameError.className = "error active";
+  } else {
+    givenName.className = "valid";
+    nameError.textContent = "";
+    nameError.className = "error";
+  }
+});
+
+const textArea = document.getElementById('message-area');
+const remainingChars = document.getElementById('remainingChars');
+const MAX_CHARS = 250;
+
+textArea.addEventListener('input', (event) => {
+  const remaining = MAX_CHARS - textArea.value.length;
+  const outOfCharColor = remaining < MAX_CHARS * 0.1 ? 'red' : null;
+  console.log(remaining);
+  remainingChars.textContent = `${remaining} Characters Remaining`;
+  remainingChars.style.color = outOfCharColor;
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const isValid = message.value.length <= 250;
+  if (!isValid) {
+    message.className = "invalid";
+    messageError.textContent = "Too Many Letters!";
+    messageError.className = "error active";
+  } else {
+    message.className = "valid";
+    messageError.textContent = "";
+    messageError.className = "error";
+  }
+});
+
+
+// Themes
 function setTheme(theme) {
   const root = document.documentElement;
   const aboutSection = document.getElementById("about_me");
@@ -93,7 +155,3 @@ function setSavedTheme() {
     document.getElementById('themeToggle').checked = savedTheme === 'light';
   }
 }
-
-document.addEventListener
-
-document.addEventListener('DOMContentLoaded', setSavedTheme);

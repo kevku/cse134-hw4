@@ -119,13 +119,39 @@ input.no-js:user-invalid + span::before {
   color: red;
 }
 
+@keyframes fadeIn {
+  0% { color: black; }
+  100% { color: lightgray; }
+}
+
 input.invalid {
   border-color: red;
   background-color: rgb(255, 171, 171);
+  animation: fadeIn 10s;
+  animation-fill-mode: forwards;
 }
 
 input:focus:invalid {
   outline: none;
+}
+
+textarea.invalid {
+  border: 2px dashed red;
+  background-color: rgb(255, 171, 171);
+  animation: fadeIn 10s;
+  animation-fill-mode: forwards;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+#remainingChars {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: right;
+  color: var(--lightgreen-color);
 }
 
 .error {
@@ -138,15 +164,7 @@ input:focus:invalid {
   border-radius: 0 0 5px 5px;
 
   box-sizing: border-box;
-}
-
-.error.active {
-  padding: 0.3em;
-}
-
-textarea:user-invalid {
-  border: 2px dashed red;
-}
+} 
 
 .switch {
   position: fixed;
