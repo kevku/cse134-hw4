@@ -1,6 +1,5 @@
 /* main.js */
 
-
 document.addEventListener
 
 document.addEventListener('DOMContentLoaded', setSavedTheme);
